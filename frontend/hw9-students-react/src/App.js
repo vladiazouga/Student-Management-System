@@ -1,13 +1,14 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import React from 'react';
 import './App.css';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import Index from './component/index';
 import AddStudent from './component/addStudent';
 import DeleteStudent from './component/deleteStudent';
 import UpdateStudent from './component/updateStudent';
-// import listStudents from './component/listStudents';
-// import displayStudent from './component/displayStudent';
+import ListStudents from './component/listStudents';
+import DisplayStudent from './component/displayStudent';
+import Search from './component/searchBy';
 
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
         <Route path='/addStudent' element={<AddStudent />}/>
         <Route path='/updateStudent' element={<UpdateStudent />}/>
         <Route path='/deleteStudent' element={<DeleteStudent />}/>
+        <Route path='/displayStudent' element={<DisplayStudent />}/>
+        <Route path='/listStudents' element={<ListStudents />}/>
+        <Route path='/search' element={<Search />}/>
       </Routes>
     
   );

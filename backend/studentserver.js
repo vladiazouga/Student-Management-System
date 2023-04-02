@@ -112,6 +112,14 @@ app.get('/students', async function (req, res) {
   }
 });
 
+//This get method will find a specific student by their last name in the database and return the data.
+app.get('/get/:lastname', async function (req, res) {
+  // View all students if no query parameters are provided
+  let students = await Model.find({last_name:req.params.lastname});
+  res.status(200).send(students);
+
+  });
+
 //This delete method will find a student by their id in the database and delete the data.
 app.delete('/delete/:record_id', async function (req, res) {
   {

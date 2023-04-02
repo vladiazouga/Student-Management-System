@@ -19,6 +19,10 @@ function Navigate() {
                             <Nav.Link> <Link to='/addStudent'> Add a Student </Link> </Nav.Link>
                             <Nav.Link> <Link to='/updateStudent'> Update a Student by ID </Link> </Nav.Link>
                             <Nav.Link> <Link to='/deleteStudent'> Delete a Student by ID </Link> </Nav.Link>
+                            <Nav.Link> <Link to='/displayStudent'> Display a Student by ID </Link> </Nav.Link>
+                            <Nav.Link> <Link to='/listStudents'> List all Students </Link> </Nav.Link>
+                            <Nav.Link> <Link to='/search'> Search by Student's Last Name </Link> </Nav.Link>
+
                             
 
 
