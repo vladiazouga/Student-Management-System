@@ -28,7 +28,9 @@ function AddStudent() {
         axios.post('http://localhost:5678/students', newStudent)
             .then((res) => {
                 console.log(res);
+                event.target.reset();
                 alert('Student Added');
+
             })
             .catch((err) => {
                 console.log(err);
@@ -45,16 +47,27 @@ function AddStudent() {
             <Navigate></Navigate>
             <h1>Add Student</h1>
             <form onSubmit={submitButton}>
+            
                 <label>Student ID</label>
+                <br />
                 <input type="text" name="studentId" onChange={(event) => setStudentId(event.target.value)}></input>
+                <br />
                 <label>First Name</label>
+                <br />
                 <input type="text" name="firstName" onChange={(event) => setfirstName(event.target.value)}></input>
+                <br />
                 <label>Last Name</label>
+                <br />
                 <input type="text" name="lastName" onChange={(event) => setlastName(event.target.value)}></input>
+                <br />
                 <label>GPA</label>
+                <br />
                 <input type="text" name="gpa" onChange={(event) => setGpa(event.target.value)}></input>
+                <br />
                 <label>Enrolled</label>
+                <br />
                 <input type="text" name="enrolled" onChange={(event) => setEnrolled(event.target.value)}></input>
+                <br />
                 <button type="submit">Submit</button>
 
             </form>

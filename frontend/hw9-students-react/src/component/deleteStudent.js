@@ -17,6 +17,7 @@ function DeleteStudent(){
         axios.delete('http://localhost:5678/delete/' + studentId)
             .then((res) => {
                 console.log(res);
+                event.target.reset();
                 alert('Student Deleted');
             })
             .catch((err) => {
@@ -35,7 +36,9 @@ function DeleteStudent(){
             <h1>Delete Student</h1>
             <form onSubmit={submitButton}>
                 <label>Student ID</label>
+                <br />
                 <input type="text" name="studentId" onChange={(event) => setStudentId(event.target.value)}></input>
+                <br />
                 <button type="submit">Submit</button>
 
             </form>

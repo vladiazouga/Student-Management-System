@@ -2,6 +2,7 @@ import React from "react"
 import Navigate from './navbar'
 import axios from 'axios'
 import { useState } from 'react'
+import Table from 'react-bootstrap/Table';
 
 function ListStudents() {
 
@@ -21,7 +22,7 @@ function ListStudents() {
             .then((res) => {
                 setMyArray(res.data);
                 console.log(myArray);
-                alert('Displays all Student');
+                //alert('Displays all Student');
             })
             .catch((err) => {
                 console.log(err);
@@ -36,17 +37,22 @@ function ListStudents() {
             <Navigate></Navigate>
             <h1>Lists All Student</h1>
             <form id='display'>
+            <br />
                 <button onClick={submitButton}>Click to get all students info</button>
             </form>
            {/* //If the array is empty, then display nothing but if there is something in the array,} */}
-            {myArray.length > 0 && <table>
+            {myArray.length > 0 && <Table striped bordered hover variant="dark">
+                <thead>
                 <tr>
-                    <th>Student ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>GPA</th>
-                    <th>Enrolled</th>
+                    <th scope = "col">Student ID</th>
+                    <th scope = "col">First Name</th>
+                    <th scope = "col">Last Name</th>
+                    <th scope = "col">GPA</th>
+                    <th scope = "col">Enrolled</th>
                 </tr>
+
+                </thead>
+                
                 <tbody>
                     {myArray.map(item => {
                         return (
@@ -60,7 +66,7 @@ function ListStudents() {
                         );
                     })}
                 </tbody>
-            </table>}
+            </Table>}
         </React.Fragment>
     )
     // }

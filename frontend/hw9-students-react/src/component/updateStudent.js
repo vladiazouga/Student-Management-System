@@ -28,6 +28,7 @@ function UpdateStudent() {
         axios.put(('http://localhost:5678/students/' + studentId), updateStudent)
             .then((res) => {
                 console.log(res);
+                event.target.reset();
                 alert('Student Updated');
             })
             .catch((err) => {
@@ -46,15 +47,25 @@ function UpdateStudent() {
             <h1>Update Student</h1>
             <form onSubmit={submitButton}>
                 <label>Student ID</label>
+                <br />
                 <input type="text" name="studentId" onChange={(event) => setStudentId(event.target.value)}></input>
+                <br />
                 <label>First Name</label>
+                <br />
                 <input type="text" name="firstName" onChange={(event) => setfirstName(event.target.value)}></input>
+                <br />
                 <label>Last Name</label>
+                <br />
                 <input type="text" name="lastName" onChange={(event) => setlastName(event.target.value)}></input>
+                <br />
                 <label>GPA</label>
+                <br />
                 <input type="text" name="gpa" onChange={(event) => setGpa(event.target.value)}></input>
+                <br />
                 <label>Enrolled</label>
+                <br />
                 <input type="text" name="enrolled" onChange={(event) => setEnrolled(event.target.value)}></input>
+                <br />
                 <button type="submit">Submit</button>
 
             </form>

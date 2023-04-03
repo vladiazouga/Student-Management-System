@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Navigate from './navbar';
+import Table from 'react-bootstrap/Table';
 
 function Search() {
     const [myArray, setMyArray] = useState([]);
@@ -18,15 +19,16 @@ function Search() {
             <Navigate></Navigate>
             <h1>Search Students</h1>
             <form onSubmit={submitButton}>
-                <label for="record_id">RecordID:</label>
+                <label for="record_id">Student's Last Name:</label>
                 <input type="text" id="record_id" name="record_id"></input>
+                <br />
 
-                <button>Delete Votes</button>
+                <button>Search Student</button>
             </form>
             <form>
                 
             </form>
-            <table class="table" id="studentTable">
+            <Table striped bordered hover variant="dark" class="table" id="studentTable">
                 <thead>
                     <tr>
                         <th scope = "col">ID</th>
@@ -36,18 +38,18 @@ function Search() {
                         <th scope = "col">Enrolled</th>
                     </tr>
                 </thead>
-                {myArray[0]&&myArray.map((student) => (
+                {myArray[0]&&myArray.map((item) => (
                     <tbody>
-                        <tr key={student._id}>
-                            <td>{student._id}</td>
-                            <td>{student.first_name}</td>
-                            <td>{student.last_name}</td>
-                            <td>{student.gpa}</td>
-                            <td>{student.enrolled.toString()}</td>
+                        <tr key={item._id}>
+                            <td>{item._id}</td>
+                            <td>{item.first_name}</td>
+                            <td>{item.last_name}</td>
+                            <td>{item.gpa}</td>
+                            <td>{item.enrolled.toString()}</td>
                         </tr>
                     </tbody>
                 ))}
-            </table>
+            </Table>
 
         </React.Fragment>
 

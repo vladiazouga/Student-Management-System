@@ -12,7 +12,7 @@ function Navigate() {
             <Navbar bg="dark" variant="dark">
                 <Container>
                     <Navbar.Brand>Student Database Management</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav>
                             <Nav.Link> <Link to='/'> Home </Link> </Nav.Link>

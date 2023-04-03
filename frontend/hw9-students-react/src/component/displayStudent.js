@@ -2,6 +2,8 @@ import React from "react"
 import Navigate from './navbar'
 import axios from 'axios'
 import { useState } from 'react'
+import Table from 'react-bootstrap/Table';
+
 
 function DisplayStudent() {
 
@@ -26,7 +28,8 @@ function DisplayStudent() {
             .then((res) => {
                 addValue(res);
                 console.log(res);
-                alert('Displayed Student');
+                event.target.reset();
+                //alert('Displayed Student');
             })
             .catch((err) => {
                 console.log(err);
@@ -45,18 +48,23 @@ function DisplayStudent() {
             <h1>Display Student</h1>
             <form id='display'>
                 <label >Student ID:</label>
+                <br />
                 <input type="text" onChange={Change} id="sid" name="sid" />
+                <br />
                 <button onClick={submitButton}>Submit</button>
             </form>
             {/* //If the array is empty, then display nothing but if there is something in the array,} */}
-            {myArray.length === 1 && <table>
+            {myArray.length === 1 && <Table striped bordered hover variant="dark">
+            <thead>
                 <tr>
-                    <th>Student ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>GPA</th>
-                    <th>Enrolled</th>
+                    <th scope = "col">Student ID</th>
+                    <th scope = "col">First Name</th>
+                    <th scope = "col">Last Name</th>
+                    <th scope = "col">GPA</th>
+                    <th scope = "col">Enrolled</th>
                 </tr>
+
+                </thead>
                 <tbody>
                     {/* //This will map through the array and display the student's info */}
                     {myArray.map(item => {
@@ -71,7 +79,7 @@ function DisplayStudent() {
                         );
                     })}
                 </tbody>
-            </table>}
+            </Table>}
         </React.Fragment>
     )
     // }
