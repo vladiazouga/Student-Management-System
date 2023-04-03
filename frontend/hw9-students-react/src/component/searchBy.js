@@ -5,22 +5,31 @@ import Table from 'react-bootstrap/Table';
 
 function Search() {
     const [myArray, setMyArray] = useState([]);
+    const inputRef = React.useRef(null);
+    
 
     function submitButton(event) {
         event.preventDefault(); // Prevents page from reloading
         submitForm();
     }
 
+    // This is the function that will be called when the form is submitted and 
+    // will send the data to the backend
     async function submitForm() {
-        const data = await axios.get('http://localhost:5678/get/'+document.getElementById('record_id').value).then((res) => { setMyArray(res.data) });
+        const data = await axios.get('http://localhost:5678/get/'+document.getElementById('record_id').value).then((res) => { setMyArray(res.data);  inputRef.current.value = '';} );
+        //setInputValue(''); // Reset the input field
     }
+
+    // function handleInputChange(event) {
+    //     setInputValue(event.target.value);
+    // }
     return (
         <React.Fragment>
             <Navigate></Navigate>
             <h1>Search Students</h1>
             <form onSubmit={submitButton}>
                 <label for="record_id">Student's Last Name:</label>
-                <input type="text" id="record_id" name="record_id"></input>
+                <input type="text" id="record_id" name="record_id" ref={inputRef}></input>
                 <br />
 
                 <button>Search Student</button>

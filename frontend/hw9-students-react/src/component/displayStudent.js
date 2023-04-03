@@ -9,6 +9,7 @@ function DisplayStudent() {
 
     const [studentId, setStudentId] = useState()
     const [myArray, setMyArray] = useState([]);
+    const inputRef = React.useRef(null);
     //This stop the page from refreshing
     const Change = (event) => {
         event.preventDefault();
@@ -24,12 +25,15 @@ function DisplayStudent() {
             setMyArray([...myArray, res.data])
         }
         //This will send the student's info to the backend
+        // const form = document.querySelector('form');
+        // const formData = new FormData(form);
         axios.get(('http://localhost:5678/students/' + studentId))
             .then((res) => {
                 addValue(res);
                 console.log(res);
-                event.target.reset();
-                //alert('Displayed Student');
+                inputRef.current.value = '';
+                // formData.reset();
+                // alert('Displayed Student');
             })
             .catch((err) => {
                 console.log(err);
@@ -49,7 +53,7 @@ function DisplayStudent() {
             <form id='display'>
                 <label >Student ID:</label>
                 <br />
-                <input type="text" onChange={Change} id="sid" name="sid" />
+                <input type="text" onChange={Change} id="sid" name="sid" ref={inputRef}/>
                 <br />
                 <button onClick={submitButton}>Submit</button>
             </form>

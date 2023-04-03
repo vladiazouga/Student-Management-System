@@ -6,6 +6,7 @@ function DeleteStudent(){
 
     //Setting up the state variables
     const [studentId, setStudentId] = useState()
+    const inputRef = React.useRef(null);
     
 
     const submitButton = (event) => {
@@ -17,7 +18,7 @@ function DeleteStudent(){
         axios.delete('http://localhost:5678/delete/' + studentId)
             .then((res) => {
                 console.log(res);
-                event.target.reset();
+                inputRef.current.value = '';
                 alert('Student Deleted');
             })
             .catch((err) => {
@@ -37,7 +38,7 @@ function DeleteStudent(){
             <form onSubmit={submitButton}>
                 <label>Student ID</label>
                 <br />
-                <input type="text" name="studentId" onChange={(event) => setStudentId(event.target.value)}></input>
+                <input type="text" name="studentId" onChange={(event) => setStudentId(event.target.value)} ref={inputRef}></input>
                 <br />
                 <button type="submit">Submit</button>
 
