@@ -3,6 +3,7 @@ import React from 'react';
 import Navigate from './navbar';
 import axios from 'axios';
 
+//This is the function that will update a student by their ID
 function UpdateStudent() {
 
     //Setting up the state variables

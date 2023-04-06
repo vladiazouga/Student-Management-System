@@ -2,6 +2,8 @@ import { useState } from 'react';
 import React from 'react';
 import Navigate from './navbar';
 import axios from 'axios';
+
+//This is the function that will delete a student by their ID
 function DeleteStudent(){
 
     //Setting up the state variables

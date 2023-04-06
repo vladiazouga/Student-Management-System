@@ -29,7 +29,8 @@ function AddStudent() {
         axios.post('http://localhost:5678/students', newStudent)
             .then((res) => {
                 console.log(res);
-                inputRef.current.value = '';
+                //inputRef.current.value = '';
+                event.target.reset();
                 alert('Student Added');
 
             })
@@ -69,7 +70,7 @@ function AddStudent() {
                 <br />
                 <input type="text" name="enrolled" onChange={(event) => setEnrolled(event.target.value)}ref={inputRef}></input>
                 <br />
-                <button type="submit">Submit</button>
+                <button >Submit</button>
 
             </form>
         </React.Fragment>

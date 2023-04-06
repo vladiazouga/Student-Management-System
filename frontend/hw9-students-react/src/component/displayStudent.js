@@ -31,7 +31,8 @@ function DisplayStudent() {
             .then((res) => {
                 addValue(res);
                 console.log(res);
-                inputRef.current.value = '';
+                //inputRef.current.value = '';
+                event.target.reset();
                 // formData.reset();
                 // alert('Displayed Student');
             })
@@ -50,12 +51,12 @@ function DisplayStudent() {
         <React.Fragment>
             <Navigate></Navigate>
             <h1>Display Student</h1>
-            <form id='display'>
+            <form id='display' onSubmit={submitButton}>
                 <label >Student ID:</label>
                 <br />
                 <input type="text" onChange={Change} id="sid" name="sid" ref={inputRef}/>
                 <br />
-                <button onClick={submitButton}>Submit</button>
+                <button >Submit</button>
             </form>
             {/* //If the array is empty, then display nothing but if there is something in the array,} */}
             {myArray.length === 1 && <Table striped bordered hover variant="dark">

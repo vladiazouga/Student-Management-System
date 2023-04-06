@@ -3,6 +3,8 @@ import axios from 'axios';
 import Navigate from './navbar';
 import Table from 'react-bootstrap/Table';
 
+// This is the component that will be rendered when the user clicks on the Search Student button
+//and will allow the user to search for a student by their last name
 function Search() {
     const [myArray, setMyArray] = useState([]);
     const inputRef = React.useRef(null);
@@ -47,6 +49,9 @@ function Search() {
                         <th scope = "col">Enrolled</th>
                     </tr>
                 </thead>
+                {/** This will map through the array 
+                 * and display the data in the table
+                 */}
                 {myArray[0]&&myArray.map((item) => (
                     <tbody>
                         <tr key={item._id}>

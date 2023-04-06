@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useState } from 'react'
 import Table from 'react-bootstrap/Table';
 
+//This is the component that will display all the students
 function ListStudents() {
 
 
@@ -52,7 +53,9 @@ function ListStudents() {
                 </tr>
 
                 </thead>
-                
+                {/** Create a map that will list all of the student's info from 
+                 * the array. The map will create a table row for each student's info
+                 */}
                 <tbody>
                     {myArray.map(item => {
                         return (
